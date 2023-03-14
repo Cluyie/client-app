@@ -8,7 +8,7 @@ function App() {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/images').then(
+    axios.get('http://localhost:5000/api/machines').then(
       response => {
         console.log(response);
         setPhotos(response.data);
