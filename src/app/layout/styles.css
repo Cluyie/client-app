@@ -1,0 +1,355 @@
+@import "primereact/resources/themes/lara-light-indigo/theme.css";  
+@import "primereact/resources/primereact.min.css";                  
+@import "primeicons/primeicons.css";    
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+  font-family: Open Sans;
+}
+body, html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+  }
+  .full-screen-div {
+	  width: 100vw;
+	  height: 100%;
+	  min-height: 100%;
+	  box-sizing: border-box;
+	  overflow-x: hidden;
+  }
+
+.logoTop {
+    width: 100px;
+    margin-right: 50px;
+}
+
+.p-card-body {
+    overflow:hidden;
+    min-height: 100px;
+}
+
+.contentMid {
+    background-color: lightgray;
+    height: 90vh;
+	width: 100%;
+   	background-size: cover;
+   	background-repeat: no-repeat;
+   	background-position: center center;
+	position: relative;
+	text-align: center;
+	overflow: auto;
+	overflow-x: hidden;
+}
+.imgStyle {
+    height: 90vh;
+	width: 100%;
+   	background-size: cover;
+   	background-repeat: no-repeat;
+   	background-position: center center;
+	opacity: 0.375;
+}
+
+.p-menubar {
+	background-color:#ffffff !important;
+	border-radius: 0;
+}
+
+.p-menuitem-icon {
+	color: black
+}
+
+.p-menuitem {
+    border-right: 1px solid black;
+}
+.footer-distributed{
+	background: red;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 12px sans-serif;
+	padding: 0px 50px;
+    position: absolute;
+    bottom: 0;
+	height: 7vh;
+}
+
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.footer-distributed .footer-left i{
+	font-size: 15px;
+	border-radius: 50%;
+	vertical-align: middle;
+	margin-top: 10px;
+}
+
+
+.footer-distributed .footer-left p{
+	display: inline-block;
+  	font-weight:500;
+	vertical-align: middle;
+	margin:0;
+	margin-top: 7px;
+}
+
+.footer-distributed .footer-left{
+	width: 34%;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #222;
+	font-size: 12px;
+	font-weight: normal;
+	margin-top: 30px;
+}
+
+.sometest {
+   width: 100%;
+   height: auto;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 46%;
+	margin-top: 15px;
+}
+
+.footer-distributed .footer-center i{
+	font-size: 15px;
+	border-radius: 50%;
+	vertical-align: middle;
+	margin-top: 10px;
+}
+
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+  	font-weight:400;
+	vertical-align: middle;
+	margin:0;
+	margin-top: 7px;
+}
+
+
+.footer-distributed .footer-center p a{
+	color:  lightseagreen;
+	text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right i.fa-envelope{
+	font-size: 15px;
+	line-height: 25px;
+	margin-left: 2px;
+	color: black
+}
+
+.footer-distributed .footer-right p{
+	display: inline-block;
+	font-weight:400;
+	margin:0;
+}
+
+
+.footer-distributed .footer-right a p{
+	color:  darkslategray;
+	text-decoration: none;
+	margin-left: 15px;
+}
+
+.footer-distributed .footer-right{
+	width: 20%;
+	margin-top: 30px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	/* height: 35px; */
+	cursor: pointer;
+	border-radius: 2px;
+
+	font-size: 12px;
+	color: #ffffff;
+	 text-align: center;
+	line-height: 35px; 
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+.p-menuitem-icon {
+	color: red !important;
+}
+.aboutText {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);	
+
+}
+ul.square {
+	list-style-type: square;
+		
+}
+.listStyle {
+	position: absolute;
+	top: 55%;
+	left: 28%;
+	transform: translate(-50%, -50%);
+}
+.padAndMar {
+	padding-top: 15%;
+	font-weight: bold;
+	font-size: 30px;
+	text-align: start;
+}
+.frontHeader {
+	position: absolute;
+	top: 15%;
+	left: 20%;
+	transform: translate(-50%, -50%);	
+	font-size: 50px;
+	margin-left: 15%;
+}
+.footerMargin {
+	margin-top: 3%;
+}
+.footerStyleCenter {
+	margin-left: 15%;
+}
+
+.aboutHeader {
+	font-size: 50px;
+	font-family: cursive;
+	margin-top: 25%;
+}
+.aboutPstyle {
+	font-weight: bolder;
+	font-size: 30px;
+}
+
+.machinesMargin {
+	margin-top: 10px;
+}
+
+.marginBotTop20 {
+	margin-bottom: 2%;
+	margin-left: 6% !important;
+}
+
+.imageStyling {
+	height: 250px;
+	width: 300px !important;
+	max-width: 100%;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom: #222 solid;
+}
+
+.p-card-header img {
+	height: 250px;
+}
+
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+/*Tablet - phones can be corrected to fit better*/
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+		height: 15vh;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 0px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+	.listStyle{
+		top: 50%;
+		left: 25%;
+		transform: translate(-50%, -50%);	
+	}
+	.padAndMar {
+		font-weight: bold;
+		font-size: 15px;
+	}
+	.frontHeader {
+		top: 15%;
+		left: 30%;
+		transform: translate(-50%, -50%);	
+	}
+
+}
+/*15" screen - Need on similar for a 24" screen*/
+@media (max-width: 1800px) and (min-width: 1200px) {
+
+	.footer-distributed{
+		height: 10vh;
+	}
+	.contentMid{
+		height: 85vh;
+	}
+
+	.listStyle {
+		top: 53%;
+		left: 25%;
+		transform: translate(-50%, -50%);	
+	}
+	.padAndMar {
+		font-weight: bold;
+		font-size: 18px;
+		padding-top: 10%;
+	}
+	.frontHeader {
+		top: 15%;
+		left: 20%;
+		transform: translate(-50%, -50%);
+		font-size: 30px;	
+	}
+	.aboutPstyle {
+		font-weight: bolder;
+		font-size: 20px;
+	}
+	.aboutHeader {
+		font-size: 30px;
+		font-family: cursive;
+		margin-top: 25%;
+	}
+	.footerMargin {
+		margin-top: 5%;
+	}
+
+	.marginBotTop20 {
+		margin-left: 4% !important;
+	}
+}
+
+
+
