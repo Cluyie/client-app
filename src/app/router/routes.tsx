@@ -1,5 +1,7 @@
 import { RouteObject } from "react-router";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import NotFound from "../../components/errors/NotFound";
+import ServerError from "../../components/errors/ServerError";
 import Forside from "../../components/Pages/Forside";
 import Maskiner from "../../components/Pages/Maskiner";
 import OmPage from "../../components/Pages/Om";
@@ -52,6 +54,9 @@ export const routes: RouteObject[] = [
             {path: 'om', element: aboutpage()},
             {path: 'maskiner', element: machinesPage()},
             {path: 'udlejning', element: rentalPage()},
+            {path: 'not-found', element: <NotFound/>},
+            {path: 'server-error', element: <ServerError/>},
+            {path: '*', element: <Navigate replace to = '/not-found'/>}
         ]
     }
 ]
