@@ -2,12 +2,20 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../../services/apicalls";
 import { MachineObj } from "../models/imageType";
+import { v4 as uuidv4 } from 'uuid';
 
 export default class MachineStore {
 
     machines: MachineObj[] = [];
     loadingInitial: boolean = false;
     loading: boolean = false;
+    createDialogVisible: boolean = false;
+    createEditMachine: MachineObj = {
+        id: "",
+        imageData: "",
+        imageTitle: "",
+    }
+    confirmDialogVisible: boolean = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -31,6 +39,7 @@ export default class MachineStore {
             await agent.machines.create(machine);
         runInAction(() => {
             this.machines.push(machine);
+            this.toggleCreateDialogVisible();
             this.setLoading(false);
 
         })
@@ -70,7 +79,10 @@ export default class MachineStore {
         }
     }
 
-   
+   confirm = () => {
+        this.deleteMachine(this.createEditMachine.id);
+        this.confirmDialogVisible = false;
+   }
 
     setLoadingInitial = (state: boolean) => {
         this.loadingInitial = state;
@@ -78,6 +90,27 @@ export default class MachineStore {
 
     setLoading = (state: boolean) => {
         this.loading = state;
+    }
+
+    toggleCreateDialogVisible = () => {
+        var visible = !this.createDialogVisible;
+        this.createDialogVisible = visible;
+    }
+    setConfirmDialogVisible = () => {
+        debugger;
+        this.confirmDialogVisible = true;
+    }
+    setConfirmDialogInvisible = () => {
+        this.confirmDialogVisible = false;
+    }
+
+    setImageText = (value: string) => {
+        this.createEditMachine.imageTitle = value;
+    }
+
+    setId = () => {
+        var id = uuidv4();
+        this.createEditMachine.id = id;
     }
 
 

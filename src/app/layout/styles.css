@@ -72,9 +72,7 @@ body, html {
 	color: black
 }
 
-.p-menuitem {
-    border-right: 1px solid black;
-}
+
 .footer-distributed{
 	background: red;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -267,6 +265,10 @@ ul.square {
 	margin-left: 6% !important;
 }
 
+.marginTop {
+	margin-top: 20px;
+}
+
 .imageStyling {
 	height: 100%;
 	width: 100%;
@@ -284,6 +286,46 @@ ul.square {
 	margin:0;
 }
 
+.topMenuStyle {
+
+}
+
+.topMenuIcon {
+	margin-left: 1%;
+	color: red;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+.topMenuP {
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.topMenuSpan {
+	margin-left: 10px;
+}
+
+.p-menubar .p-menuitem {
+	margin-left: 20px;
+	
+}
+
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
+
+.iconSpace {
+	margin-left: 20px;
+	margin-bottom: 5px;
+}
 
 /* If you don't want the footer to be responsive, remove these media queries */
 

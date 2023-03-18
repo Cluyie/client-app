@@ -11,26 +11,30 @@ interface Props {
 }
 const Maskiner  = (props: Props) => {
     const {machineStore} = useStore();
-    const {loadMachines, machines} = machineStore;
+    const {loadMachines, machines, setConfirmDialogVisible} = machineStore;
     
     useEffect(() => {
         if(machines.length === 0) loadMachines();
       }, [loadMachines, machines.length])
 
 
-    const handleCreateOrEditMachines = (machine: MachineObj) => {
-
-    }
 
     if(machineStore.loadingInitial) return (<div className='contentMid'><LoadingCompnent/></div>)
 
     return (
         <div className='row marginBotTop20'>
         {machineStore.machines.map((x) => {
-             var url = 'data:image/png;base64,' + x.imageData;
-             const header = <Image alt="maskiner" src={url} className= "imageStyling" preview />
+             //var url = 'data:image/png;base64,' + x.imageData;
+
+             const header = (
+                 <Image alt="maskiner" src={x.imageData} className= "imageStyling" preview />                
+             ) 
         return (
             <div className='col-2 d-flex justify-content-center flex-column machinesMargin' style={{marginTop: "2%", marginLeft: "2%"}} key={x.id}>
+                <div className='d-flex justify-content-center flex-row iconSpace'>
+                    <i className="fa-solid fa-trash iconSpace" onClick={() => setConfirmDialogVisible()}></i>
+                    <i className="fa-sharp fa-regular fa-pen-to-square iconSpace" onClick={() => setConfirmDialogVisible()}></i>
+                </div>
                 <Card header={header} >
                     {x.imageTitle}
                 </Card>
