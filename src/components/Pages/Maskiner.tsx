@@ -6,10 +6,7 @@ import { useStore } from '../../app/stores/store';
 import LoadingCompnent from '../loader';
 import { observer } from 'mobx-react-lite';
 
-interface maskineObject {
-    src: string;
-    description: string;
-}
+
 interface Props {
 }
 const Maskiner  = (props: Props) => {

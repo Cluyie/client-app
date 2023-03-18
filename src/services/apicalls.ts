@@ -63,8 +63,17 @@ const machines = {
     update: (machine: MachineObj) => request.put<void>('machines', machine),
     delete: (id: string) => request.delete<void>(`/machines/${id}`)
 }
+
+const rentals = {
+    list: () => request.get<MachineObj[]>('/rentals'),
+    details: (id: string) => request.get<MachineObj>(`/rentals/${id}`),
+    create: (rental: MachineObj) => request.post<void>('rentals', rental),
+    update: (rental: MachineObj) => request.put<void>('rentals', rental),
+    delete: (id: string) => request.delete<void>(`/rentals/${id}`)
+}
 const agent = {
-    machines
+    machines,
+    rentals
 }
 export default agent;
 
