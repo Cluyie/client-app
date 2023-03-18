@@ -1,6 +1,7 @@
 @import "primereact/resources/themes/lara-light-indigo/theme.css";  
 @import "primereact/resources/primereact.min.css";                  
 @import "primeicons/primeicons.css";    
+@import 'semantic-ui-css/semantic.min.css';
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
@@ -21,13 +22,24 @@ body, html {
   }
 
 .logoTop {
-    width: 100px;
-    margin-right: 50px;
+    width: 100px !important;
+    margin-right: 50px !important;
+}
+
+.colorRed {
+	color: red;
+	margin-right: 10px;
+}
+
+.ui.menu:first-child {
+	margin: 0;
+	border-bottom: 1px solid;
 }
 
 .p-card-body {
     overflow:hidden;
     min-height: 100px;
+	max-height: 100px;
 }
 
 .contentMid {
@@ -256,8 +268,8 @@ ul.square {
 }
 
 .imageStyling {
-	height: 250px;
-	width: 300px !important;
+	height: 100%;
+	width: 100%;
 	max-width: 100%;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -310,12 +322,23 @@ ul.square {
 /*15" screen - Need on similar for a 24" screen*/
 @media (max-width: 1800px) and (min-width: 1200px) {
 
-	.footer-distributed{
-		height: 10vh;
-	}
 	.contentMid{
 		height: 85vh;
 	}
+
+	.footer-distributed{
+		height: 10vh;
+	}
+
+	.footer-distributed .footer-center{
+		width: 46%;
+		margin-top: 10px;
+	}
+	
+	.footerMargin {
+		margin-top: 5%;
+	}
+
 
 	.listStyle {
 		top: 53%;
@@ -342,12 +365,18 @@ ul.square {
 		font-family: cursive;
 		margin-top: 25%;
 	}
-	.footerMargin {
-		margin-top: 5%;
-	}
-
+	
 	.marginBotTop20 {
 		margin-left: 4% !important;
+	}
+
+	.machinesMargin {
+		margin-top: 10px;
+		display: flexbox;
+	}
+	.p-card-body {
+		overflow:auto;
+		
 	}
 }
 
