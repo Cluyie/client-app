@@ -16,6 +16,7 @@ export default class MachineStore {
         imageTitle: "",
     }
     confirmDialogVisible: boolean = false;
+    idToDelete: string = "";
 
     constructor() {
         makeAutoObservable(this);
@@ -41,12 +42,19 @@ export default class MachineStore {
             this.machines.push(machine);
             this.toggleCreateDialogVisible();
             this.setLoading(false);
+            const emptyMachine: MachineObj = {
+                id: "",
+                imageData: "",
+                imageTitle: "",
+            }
+            this.createEditMachine = emptyMachine;
 
         })
         } catch (error) {
             console.log(error);
             this.setLoading(false);
         }
+       
     }
 
     updateMachine = async (machine: MachineObj) => {
@@ -54,14 +62,25 @@ export default class MachineStore {
         try {
             await agent.machines.update(machine);
         runInAction(() => {
-            this.machines = [...this.machines.filter(a => a.id !== machine.id), machine]
+            var index = this.machines.findIndex(x=> x.id == machine.id);
+            if (index) {
+                this.machines.splice(index, 1, machine);
+            }
             this.setLoading(false);
+            this.toggleCreateDialogVisible();
+            const emptyMachine: MachineObj = {
+                id: "",
+                imageData: "",
+                imageTitle: "",
+            }
+            this.createEditMachine = emptyMachine;
 
         })
         } catch (error) {
             console.log(error);
             this.setLoading(false);
         }
+
     }
 
     deleteMachine = async (id: string) => {
@@ -79,8 +98,23 @@ export default class MachineStore {
         }
     }
 
+    editMachine = (machine: MachineObj) => {
+        this.createEditMachine = machine;
+        this.toggleCreateDialogVisible();
+    }
+
+    resetObject = () => {
+        const emptyMachine: MachineObj = {
+            id: "",
+            imageData: "",
+            imageTitle: "",
+        }
+        this.createEditMachine = emptyMachine;
+    }
+
    confirm = () => {
-        this.deleteMachine(this.createEditMachine.id);
+        this.deleteMachine(this.idToDelete);
+        this.idToDelete = "";
         this.confirmDialogVisible = false;
    }
 
@@ -96,8 +130,8 @@ export default class MachineStore {
         var visible = !this.createDialogVisible;
         this.createDialogVisible = visible;
     }
-    setConfirmDialogVisible = () => {
-        debugger;
+    setConfirmDialogVisible = (id: string) => {
+        this.idToDelete = id;
         this.confirmDialogVisible = true;
     }
     setConfirmDialogInvisible = () => {

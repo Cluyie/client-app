@@ -325,6 +325,7 @@ a:active { text-decoration: none; }
 .iconSpace {
 	margin-left: 20px;
 	margin-bottom: 5px;
+	cursor: pointer;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */

@@ -8,34 +8,34 @@ import { Image } from 'primereact/image';
 import { InputTextarea } from 'primereact/inputtextarea';
 import agent from "../../services/apicalls";
 
-const CreateDialog = () => {
-    const [imageString, setImageString] = useState<string>();
-    const {machineStore} = useStore();
-    const {createDialogVisible, createEditMachine ,toggleCreateDialogVisible, setImageText, setId, createMachine, updateMachine, resetObject} = machineStore;
+const CreateRentalDialog = () => {
+    const {rentalStore} = useStore();
+    const {createDialogVisible, createEditMachine ,toggleCreateRentalDialogVisible, setImageText, setId, createRental, updateRentals, resetObject} = rentalStore;
 
     const onSave = async () => {
+        debugger;
         let createOrEdit = "";
         if(createEditMachine.id == "") {
             createOrEdit = "CREATE";
             setId();
             if(createEditMachine.id.length > 0) {
-                createMachine(createEditMachine);
+                createRental(createEditMachine);
             }
         }
         else if(createEditMachine.id.length > 5) {
-            updateMachine(createEditMachine);
+            updateRentals(createEditMachine);
         }
     }
 
     const cancel = () => {
-        toggleCreateDialogVisible();
+        toggleCreateRentalDialogVisible();
         resetObject();
     }
 
     const renderFooter = () => {
         return (
             <div>
-                <Button label="Cancel" icon="pi pi-times" onClick={() => toggleCreateDialogVisible()} className="p-button-text" />
+                <Button label="Cancel" icon="pi pi-times" onClick={() => cancel()} className="p-button-text" />
                 <Button label="Save" icon="pi pi-check" onClick={() => onSave()} autoFocus />
             </div>
         );
@@ -50,7 +50,6 @@ const CreateDialog = () => {
             let base64data = reader.result;
             if(base64data != null) {
                 if(typeof(base64data) == "string") {
-                    setImageString(base64data);
                     createEditMachine.imageData = base64data;
                 }
                
@@ -61,7 +60,7 @@ const CreateDialog = () => {
     
 
     return (
-        <Dialog header="Header" visible={createDialogVisible} style={{ width: '25vw' }} footer={renderFooter()} onHide={() => toggleCreateDialogVisible()}>
+        <Dialog header="Header" visible={createDialogVisible} style={{ width: '25vw' }} footer={renderFooter()} onHide={() => cancel()}>
             <div className="d-flex flex-column justify-content-center">
                 <Image src={createEditMachine.imageData} alt="Image" width="250" height="250" preview />
             <InputTextarea className = "marginTop" value={createEditMachine.imageTitle} onChange={(e) => setImageText(e.target.value)} rows={5} cols={30} autoResize />
@@ -71,4 +70,4 @@ const CreateDialog = () => {
     )
 }
 
-export default observer(CreateDialog);
+export default observer(CreateRentalDialog);

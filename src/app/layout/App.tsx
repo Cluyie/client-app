@@ -4,6 +4,8 @@ import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import CreateDialog from '../../components/dialogs/createDialog';
 import ConfirmDialog from '../../components/dialogs/confirmDialog';
+import ConfirmRentalDialog from '../../components/dialogs/confirmRentalDialog';
+import CreateRentalDialog from '../../components/dialogs/createRentalDialog';
 
 function App() {
   
@@ -12,7 +14,9 @@ function App() {
 <div>
   <ToastContainer position='bottom-right' hideProgressBar theme='colored'/>
   <CreateDialog/>
-  <ConfirmDialog/>      
+  <ConfirmDialog/> 
+  <ConfirmRentalDialog/>
+  <CreateRentalDialog/>     
       <MenubarTop />
         <div className='contentMid'>
           <Outlet/>

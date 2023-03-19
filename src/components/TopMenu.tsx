@@ -8,6 +8,9 @@ import { useStore } from '../app/stores/store';
 const MenubarTop = () => {
     const {machineStore} = useStore();
     const {toggleCreateDialogVisible} = machineStore;
+    
+    const {rentalStore} = useStore();
+    const {toggleCreateRentalDialogVisible} = rentalStore;
 
     let items: any;
     const loggedIn: boolean = true;
@@ -97,7 +100,7 @@ const MenubarTop = () => {
                     {
                         label: "Ny Udlejning",
                         command: () => {
-                            toggleCreateDialogVisible();
+                            toggleCreateRentalDialogVisible();
                         }
                     },
                 ]

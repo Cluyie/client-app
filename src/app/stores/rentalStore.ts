@@ -1,12 +1,21 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../../services/apicalls";
 import { MachineObj } from "../models/imageType";
+import { v4 as uuidv4 } from 'uuid';
 
 
 export default class RentalStore {
     rentals: MachineObj[] = [];
     loadingInitial: boolean = false;
     loading: boolean = false;
+    createDialogVisible: boolean = false;
+    createEditMachine: MachineObj = {
+        id: "",
+        imageData: "",
+        imageTitle: "",
+    }
+    confirmDialogVisible: boolean = false;
+    idToDelete: string = "";
 
     constructor() {
         makeAutoObservable(this);
@@ -31,6 +40,13 @@ export default class RentalStore {
         runInAction(() => {
             this.rentals.push(rental);
             this.setLoading(false);
+            this.toggleCreateRentalDialogVisible();
+            const emptyMachine: MachineObj = {
+                id: "",
+                imageData: "",
+                imageTitle: "",
+            }
+            this.createEditMachine = emptyMachine;
 
         })
         } catch (error) {
@@ -46,6 +62,13 @@ export default class RentalStore {
         runInAction(() => {
             this.rentals = [...this.rentals.filter(a => a.id !== rental.id), rental]
             this.setLoading(false);
+            this.toggleCreateRentalDialogVisible();
+            const emptyMachine: MachineObj = {
+                id: "",
+                imageData: "",
+                imageTitle: "",
+            }
+            this.createEditMachine = emptyMachine;
 
         })
         } catch (error) {
@@ -69,7 +92,25 @@ export default class RentalStore {
         }
     }
 
-   
+    editMachine = (machine: MachineObj) => {
+        this.createEditMachine = machine;
+        this.toggleCreateRentalDialogVisible();
+    }
+
+    resetObject = () => {
+        const emptyMachine: MachineObj = {
+            id: "",
+            imageData: "",
+            imageTitle: "",
+        }
+        this.createEditMachine = emptyMachine;
+    }
+
+   confirm = () => {
+        this.deleteRental(this.idToDelete);
+        this.idToDelete = "";
+        this.confirmDialogVisible = false;
+   }
 
     setLoadingInitial = (state: boolean) => {
         this.loadingInitial = state;
@@ -77,5 +118,26 @@ export default class RentalStore {
 
     setLoading = (state: boolean) => {
         this.loading = state;
+    }
+
+    toggleCreateRentalDialogVisible = () => {
+        var visible = !this.createDialogVisible;
+        this.createDialogVisible = visible;
+    }
+    setConfirmDialogVisible = (id: string) => {
+        this.idToDelete = id;
+        this.confirmDialogVisible = true;
+    }
+    setConfirmDialogInvisible = () => {
+        this.confirmDialogVisible = false;
+    }
+
+    setImageText = (value: string) => {
+        this.createEditMachine.imageTitle = value;
+    }
+
+    setId = () => {
+        var id = uuidv4();
+        this.createEditMachine.id = id;
     }
 }

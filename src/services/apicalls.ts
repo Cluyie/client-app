@@ -60,15 +60,15 @@ const machines = {
     list: () => request.get<MachineObj[]>('/machines'),
     details: (id: string) => request.get<MachineObj>(`/machines/${id}`),
     create: (machine: MachineObj) => request.post<void>('machines', machine),
-    update: (machine: MachineObj) => request.put<void>('machines', machine),
+    update: (machine: MachineObj) => request.put<void>(`/machines/${machine.id}`, machine),
     delete: (id: string) => request.delete<void>(`/machines/${id}`)
 }
 
 const rentals = {
     list: () => request.get<MachineObj[]>('/rentals'),
     details: (id: string) => request.get<MachineObj>(`/rentals/${id}`),
-    create: (rental: MachineObj) => request.post<void>('rentals', rental),
-    update: (rental: MachineObj) => request.put<void>('rentals', rental),
+    create: (rental: MachineObj) => request.post<void>('/rentals', rental),
+    update: (rental: MachineObj) => request.put<void>(`/rentals/${rental.id}`, rental),
     delete: (id: string) => request.delete<void>(`/rentals/${id}`)
 }
 const agent = {
@@ -76,13 +76,3 @@ const agent = {
     rentals
 }
 export default agent;
-
-/* export const GetAll  = async () => {
-    const list: MachineObj[] = await (await axios.get('http://localhost:5000/api/machines')).data;
-    return list;
-}
-
-export const GetSingleMachine  = async (id: string) => {
-    const single: MachineObj = await (await axios.get('http://localhost:5000/api/machines/' + id)).data;
-    return single;
-} */
