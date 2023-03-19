@@ -17,7 +17,7 @@ const ConfirmRentalDialog = () => {
         );
     }
     return (
-        <Dialog header="Header" visible={confirmDialogVisible} style={{ width: '25vw' }} footer={renderFooter()} onHide={() => setConfirmDialogInvisible()}>
+        <Dialog header="Slet" visible={confirmDialogVisible} style={{ width: '25vw' }} footer={renderFooter()} onHide={() => setConfirmDialogInvisible()}>
              Er du sikker på du vil slette billedet?
         </Dialog>
     )

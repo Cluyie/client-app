@@ -6,17 +6,27 @@ import CreateDialog from '../../components/dialogs/createDialog';
 import ConfirmDialog from '../../components/dialogs/confirmDialog';
 import ConfirmRentalDialog from '../../components/dialogs/confirmRentalDialog';
 import CreateRentalDialog from '../../components/dialogs/createRentalDialog';
+import LoginDialog from '../../components/dialogs/loginDialog';
+import { useStore } from '../stores/store';
+import { useEffect } from 'react';
 
 function App() {
-  
-  return (
+  const {commonStore, userStore} = useStore();
 
+  useEffect(() => {
+    if(commonStore.token) {
+      userStore.getUser();
+    } 
+  }, [commonStore, userStore])
+
+  return (
 <div>
   <ToastContainer position='bottom-right' hideProgressBar theme='colored'/>
   <CreateDialog/>
   <ConfirmDialog/> 
   <ConfirmRentalDialog/>
-  <CreateRentalDialog/>     
+  <CreateRentalDialog/>
+  <LoginDialog/>     
       <MenubarTop />
         <div className='contentMid'>
           <Outlet/>

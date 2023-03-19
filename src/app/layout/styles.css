@@ -328,6 +328,12 @@ a:active { text-decoration: none; }
 	cursor: pointer;
 }
 
+.loginIcon {
+	margin-top: 15px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
 /* If you don't want the footer to be responsive, remove these media queries */
 
 /*Tablet - phones can be corrected to fit better*/

@@ -60,7 +60,7 @@ const CreateRentalDialog = () => {
     
 
     return (
-        <Dialog header="Header" visible={createDialogVisible} style={{ width: '25vw' }} footer={renderFooter()} onHide={() => cancel()}>
+        <Dialog header="Opret udlejnings maskine" visible={createDialogVisible} style={{ width: '25vw' }} footer={renderFooter()} onHide={() => cancel()}>
             <div className="d-flex flex-column justify-content-center">
                 <Image src={createEditMachine.imageData} alt="Image" width="250" height="250" preview />
             <InputTextarea className = "marginTop" value={createEditMachine.imageTitle} onChange={(e) => setImageText(e.target.value)} rows={5} cols={30} autoResize />

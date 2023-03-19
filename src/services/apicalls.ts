@@ -1,11 +1,18 @@
 import axios, { Axios, AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 import { MachineObj } from "../app/models/imageType";
+import { User, UserForm } from "../app/models/user";
 import { router } from "../app/router/routes";
 import { store } from "../app/stores/store";
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
+
+axios.interceptors.request.use(config => {
+    const token = store.commonStore.token;
+    if (token && config.headers) config.headers.Authorization = `Bearer ${token}`;
+    return config;
+})
 
 axios.interceptors.response.use(async response => {
     return response;
@@ -71,8 +78,16 @@ const rentals = {
     update: (rental: MachineObj) => request.put<void>(`/rentals/${rental.id}`, rental),
     delete: (id: string) => request.delete<void>(`/rentals/${id}`)
 }
+
+const Account = {
+    current: () => request.get<User>('/account'),
+    login: (user: UserForm) => request.post<User>('/account/login', user),
+    register: (user: UserForm) => request.post<User>('/account/register', user)
+}
+
 const agent = {
     machines,
-    rentals
+    rentals,
+    Account
 }
 export default agent;

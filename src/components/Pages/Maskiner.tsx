@@ -12,6 +12,9 @@ interface Props {
 const Maskiner  = (props: Props) => {
     const {machineStore} = useStore();
     const {loadMachines, machines, setConfirmDialogVisible, editMachine} = machineStore;
+
+    const {userStore} = useStore();
+    const {isLoggedIn} = userStore;
     
     useEffect(() => {
         if(machines.length === 0) loadMachines();
@@ -32,8 +35,15 @@ const Maskiner  = (props: Props) => {
         return (
             <div className='col-2 d-flex justify-content-center flex-column machinesMargin' style={{marginTop: "2%", marginLeft: "2%"}} key={x.id}>
                 <div className='d-flex justify-content-center flex-row iconSpace'>
-                    <i className="fa-solid fa-trash iconSpace" onClick={() => setConfirmDialogVisible(x.id)}></i>
-                    <i className="fa-sharp fa-regular fa-pen-to-square iconSpace" onClick={() => editMachine(x)}></i>
+                    {isLoggedIn ? (
+                        <>
+                        <i className="fa-solid fa-trash iconSpace" onClick={() => setConfirmDialogVisible(x.id)}></i>
+                        <i className="fa-sharp fa-regular fa-pen-to-square iconSpace" onClick={() => editMachine(x)}></i>
+                        </>
+                    ) : (
+                        <></>
+                    )}
+                    
                 </div>
                 <Card header={header} >
                     {x.imageTitle}

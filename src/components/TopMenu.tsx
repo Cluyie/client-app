@@ -12,10 +12,13 @@ const MenubarTop = () => {
     const {rentalStore} = useStore();
     const {toggleCreateRentalDialogVisible} = rentalStore;
 
-    let items: any;
-    const loggedIn: boolean = true;
+    const{userStore} = useStore();
+    const {setLoginDialogVisible} = userStore;
 
-    if(loggedIn) {
+    let items: any;
+  
+
+    if(userStore.isLoggedIn) {
         items = [
             {
                 label: 'Hjem',
@@ -184,29 +187,16 @@ const MenubarTop = () => {
     
 
     const url = "/assets/logo.jpg"
-    const end = <img alt="logo"  src={url} height="40" className="mr-2 logoTop"></img>;
+    const end = (
+        <div className='d-flex flex-row machinesMargin'>
+        <img alt="logo"  src={url} height="40" className="mr-2 logoTop"></img>
+        <i className="fa-solid fa-right-to-bracket loginIcon" onClick={() => setLoginDialogVisible()}></i>
+    </div>
+    );
     return ( 
         <div>
         <Menubar model={items} end={end} />
     </div>
-        
-       /*  <Menu>
-             <Menu.Item icon = {<i className="fa-solid fa-house colorRed"></i>} name='Hjem' as={NavLink} to='/'>
-            </Menu.Item>
-            
-            <Menu.Item icon = {<i className="fa-solid fa-circle-info colorRed"></i>} name='Om' as={NavLink} to='/Om'>
-            </Menu.Item>
-
-            <Menu.Item icon = {<i className="fa-solid fa-circle colorRed"></i>} name='Maskiner' as={NavLink} to='/Maskiner'>
-            </Menu.Item>
-
-            <Menu.Item icon = {<i className="fa-solid fa-circle colorRed"></i>} name ='Udlejning' as={NavLink} to='/Udlejning'>
-            </Menu.Item>
-
-            <Menu.Item position='right'>
-                {end}
-            </Menu.Item>
-        </Menu> */
     );
 }
 
