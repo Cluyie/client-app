@@ -5,7 +5,7 @@ import { User, UserForm } from "../app/models/user";
 import { router } from "../app/router/routes";
 import { store } from "../app/stores/store";
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
 
 axios.interceptors.request.use(config => {
