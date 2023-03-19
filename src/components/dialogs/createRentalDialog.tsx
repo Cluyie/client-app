@@ -13,7 +13,6 @@ const CreateRentalDialog = () => {
     const {createDialogVisible, createEditMachine ,toggleCreateRentalDialogVisible, setImageText, setId, createRental, updateRentals, resetObject} = rentalStore;
 
     const onSave = async () => {
-        debugger;
         let createOrEdit = "";
         if(createEditMachine.id == "") {
             createOrEdit = "CREATE";
