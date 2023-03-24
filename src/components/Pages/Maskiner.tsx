@@ -20,10 +20,9 @@ const Maskiner  = (props: Props) => {
         if(machines.length === 0) loadMachines();
       }, [loadMachines, machines.length])
 
-
+      
 
     if(machineStore.loadingInitial) return (<div className='contentMid'><LoadingCompnent/></div>)
-
     return (
         <div className='row marginBotTop20'>
         {machineStore.machines.map((x) => {
@@ -34,7 +33,7 @@ const Maskiner  = (props: Props) => {
              ) 
         return (
             <div className='col-2 d-flex justify-content-center flex-column machinesMargin' style={{marginTop: "2%", marginLeft: "2%"}} key={x.id}>
-                <div className='d-flex justify-content-center flex-row iconSpace'>
+                <div className='d-flex justify-content-start flex-row iconSpace'>
                     {isLoggedIn ? (
                         <>
                         <i className="fa-solid fa-trash iconSpace" onClick={() => setConfirmDialogVisible(x.id)}></i>

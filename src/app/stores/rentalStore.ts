@@ -21,11 +21,22 @@ export default class RentalStore {
         makeAutoObservable(this);
     }
 
+    compare = ( a: MachineObj, b: MachineObj ) => {
+        if ( a.imageTitle < b.imageTitle ){
+          return -1;
+        }
+        if ( a.imageTitle > b.imageTitle ){
+          return 1;
+        }
+        return 0;
+      }
+
     loadRentals = async () => {
       this.setLoadingInitial(true);
         try {
             const rentals = await agent.rentals.list();
             this.rentals = rentals;
+            this.rentals.sort(this.compare);
             this.setLoadingInitial(false);
         } catch (error) {
             console.log(error);
@@ -39,6 +50,7 @@ export default class RentalStore {
             await agent.rentals.create(rental);
         runInAction(() => {
             this.rentals.push(rental);
+            this.rentals.sort(this.compare);
             this.setLoading(false);
             this.toggleCreateRentalDialogVisible();
             const emptyMachine: MachineObj = {
@@ -60,7 +72,11 @@ export default class RentalStore {
         try {
             await agent.rentals.update(rental);
         runInAction(() => {
-            this.rentals = [...this.rentals.filter(a => a.id !== rental.id), rental]
+            var index = this.rentals.findIndex(x=> x.id == rental.id);
+            if (index) {
+                this.rentals.splice(index, 1, rental);
+                this.rentals.sort(this.compare);
+            }           
             this.setLoading(false);
             this.toggleCreateRentalDialogVisible();
             const emptyMachine: MachineObj = {

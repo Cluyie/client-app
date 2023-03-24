@@ -10,6 +10,7 @@ import App from "../layout/App";
 
 
 const url = "/assets/Forside.jpg"
+const logo = "/assets/logo.jpg"
 const frontPage = () => {  
     return (
     <div className='contentMid'>

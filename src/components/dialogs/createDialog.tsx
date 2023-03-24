@@ -3,40 +3,45 @@ import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button'
 import { useStore } from "../../app/stores/store";
 import { FileUpload } from 'primereact/fileupload';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Image } from 'primereact/image';
 import { InputTextarea } from 'primereact/inputtextarea';
 import agent from "../../services/apicalls";
+import { toast } from "react-toastify";
 
 const CreateDialog = () => {
-    const [imageString, setImageString] = useState<string>();
     const {machineStore} = useStore();
     const {createDialogVisible, createEditMachine ,toggleCreateDialogVisible, setImageText, setId, createMachine, updateMachine, resetObject} = machineStore;
 
+    useEffect(() => {
+
+    }, [])
+
     const onSave = async () => {
-        let createOrEdit = "";
-        if(createEditMachine.id == "") {
-            createOrEdit = "CREATE";
-            setId();
-            if(createEditMachine.id.length > 0) {
-                createMachine(createEditMachine);
+        if(createEditMachine.imageData.length < 1 || createEditMachine.imageTitle.length < 1) {
+            toast.error('server error');
+               
+        }
+        else {
+            let createOrEdit = "";
+            if(createEditMachine.id == "") {
+                createOrEdit = "CREATE";
+                setId();
+                if(createEditMachine.id.length > 0) {
+                    createMachine(createEditMachine);
+                }
+            }
+            else if(createEditMachine.id.length > 5) {
+                updateMachine(createEditMachine);
             }
         }
-        else if(createEditMachine.id.length > 5) {
-            updateMachine(createEditMachine);
-        }
-    }
-
-    const cancel = () => {
-        toggleCreateDialogVisible();
-        resetObject();
     }
 
     const renderFooter = () => {
         return (
             <div>
                 <Button label="Cancel" icon="pi pi-times" onClick={() => toggleCreateDialogVisible()} className="p-button-text" />
-                <Button label="Save" icon="pi pi-check" onClick={() => onSave()} autoFocus />
+                <Button label="Save" icon="pi pi-check" onClick={() => onSave()} autoFocus/>
             </div>
         );
     }
@@ -50,7 +55,6 @@ const CreateDialog = () => {
             let base64data = reader.result;
             if(base64data != null) {
                 if(typeof(base64data) == "string") {
-                    setImageString(base64data);
                     createEditMachine.imageData = base64data;
                 }
                
