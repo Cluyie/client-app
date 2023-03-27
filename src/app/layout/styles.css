@@ -382,7 +382,7 @@ a:active { text-decoration: none; }
 		margin-bottom: 5px;
 	}
 	.listStyle{
-		top: 50%;
+		top: 60%;
 		left: 43%;
 		transform: translate(-50%, -50%);	
 	}
@@ -437,7 +437,7 @@ a:active { text-decoration: none; }
 
 }
 /*15" screen - Need on similar for a 24" screen*/
-@media (max-width: 1800px) and (min-width: 1200px) {
+@media (max-width: 1800px) and (min-width: 881px) {
 
 	.contentMid{
 		height: 85vh;
@@ -504,7 +504,7 @@ a:active { text-decoration: none; }
 	}
 }
 
-  @media (max-height: 800px) and (max-width: 379px) {
+  @media (max-width: 379px) {
 
 	.notPhone {
 		display: none;

@@ -12,8 +12,8 @@ const Forside = () => {
                 <li className='padAndMar'>Aut. kloakmester</li>
                 <li className='padAndMar'>Vognmand's kørsel</li>
                 <li className='padAndMar'>Alt Entreprenør arbejde udføres</li>
-                <li className='padAndMar'>Maskin Udlejning</li>
-                <li className='padAndMar'>Container Udlejning</li>
+                <li className='padAndMar'>Maskinudlejning</li>
+                <li className='padAndMar'>Udlejning af container</li>
                 <li className='padAndMar'>Råmaterialer sælges/afhentes på plads</li>
             </ul>
         </div>
