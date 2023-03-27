@@ -12,17 +12,17 @@ const OmPage = () => {
            Vi spænder bredt og bestræber os på at kunne klare næsten alle opgaver inden for feltet.
            <br/>
            <br/>
-           vi har gennem årene, lavet mange forskellige opgaver lige fra nybyggeri, 
-           nedsivning og seperering af spildevand, til belægninger.
+           Vi har erfaring med mange forskellige opgaver lige fra nybyggeri, 
+           nedsivning og seperering af spildevand.
            <br/>
            <br/>
-           Vi har filosofien at ingen opgave er for luille eller for stor. Næsten hvertfald. 
+           Vores filosofi er, at ingen opgave er for luille eller for stor. Næsten hvertfald. 
            <br/>
            <br/>
-           De sidste par år har vi været en stab på 6-8 mand, men er i en rivende udvikling
+           De seneste år, har vi været en stab på 6-8 mand, men vi er i rivende udvikling.
            <br/>
            <br/>
-           Ring eller skriv endelig hvis i har spørgsmål
+           Ring eller skriv endelig, hvis i har spørgsmål
            <br/>
            <br/>
            Hilsen Rasmus og Per

@@ -354,7 +354,7 @@ a:active { text-decoration: none; }
 /* If you don't want the footer to be responsive, remove these media queries */
 
 /*Tablet - phones can be corrected to fit better*/
-@media (max-width: 880px) {
+@media (max-width: 880px) and (min-width: 600px) {
 
 	.notPhone {
 		display: none;
@@ -502,6 +502,94 @@ a:active { text-decoration: none; }
 		height: 85vh !important;
 		overflow: hidden;
 	}
+}
+
+@media (max-height: 800px) and (max-width: 400px) {
+
+	.notPhone {
+		display: none;
+	}
+	.phone {
+		display: inline;
+	}
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+		height: 20vh;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 0px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+		margin-bottom: 5px;
+	}
+	.listStyle{
+		top: 60%;
+		left: 43%;
+		transform: translate(-50%, -50%);	
+	}
+	.padAndMar {
+		font-weight: bold;
+		font-size: 15px;
+	}
+	.frontHeader {
+		top: 15%;
+		left: 37%;
+		transform: translate(-50%, -50%);	
+		font-size: 25px;
+	}
+	.aboutText {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);	
+		width: 80%;
+	
+	}
+	.aboutHeader {
+		font-size: 24px;
+		font-family: cursive;
+		margin-top: 25%;
+	}
+	.aboutPstyle {
+		font-weight: bolder;
+		font-size: 12px;
+	}
+	.p-card {
+		max-width: 300px;
+		min-width: 300px;
+	}
+	.machinesMargin {
+		margin-top: 2% !important;
+		margin-left: 4%;
+		min-width: 330px;
+		margin-bottom: 10px;
+	}
+
+	.marginBotTop20 {
+		margin-left: 2% !important;
+	}
+
+	.contentMid{
+		height: 70vh;
+	}
+	.textContent {
+		height: 73vh !important;
+		overflow: hidden;
+	}
+
+	.footerMargin {
+		margin-top: 0%;
+	}
+
 }
 
 
