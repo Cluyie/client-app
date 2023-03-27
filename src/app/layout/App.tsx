@@ -29,7 +29,7 @@ function App() {
   <CreateRentalDialog/>
   <LoginDialog/>     
       <MenubarTop />
-        <div className='contentMid'>
+        <div>
           <Outlet/>
         </div>
       <Footer/>

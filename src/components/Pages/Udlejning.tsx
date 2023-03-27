@@ -30,7 +30,7 @@ const Udlejning  = () => {
         {rentalStore.rentals.map((x) => {
              const header = <Image alt="maskiner" src={x.imageData} className= "imageStyling" preview />
         return (
-            <div className='col-2 d-flex justify-content-center flex-column machinesMargin' style={{marginTop: "2%", marginLeft: "2%"}} key={x.id}>
+            <div className='col-2 d-flex justify-content-center flex-column machinesMargin' key={x.id}>
                  <div className='d-flex justify-content-start flex-row iconSpace'>
 
                  {isLoggedIn ? (

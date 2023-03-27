@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <>
-    <div className='footer-distributed'>
+    <div className='footer-distributed notPhone'>
         <div className='footer-left'>
             <div className='footerMargin'>
                 <a href="https://www.facebook.com/profile.php?id=100057589534390" style={{fontSize: 20}} target="_blank"><i className="fa-brands fa-facebook"></i><p style ={{marginLeft: 10}}className='footer-company-name'>Holsted maskinudlejning</p></a>
@@ -30,11 +30,39 @@ const Footer = () => {
         <div className='footer-right'>
            
             <div>
-            <a href="mailto:support@company.com">
+            <a href="mailto:mail@holstedmaskinudlejning.dk">
             <i className="fa-solid fa-envelope"></i>
                <p>mail@holstedmaskinudlejning.dk</p></a>
             </div>
         </div>
+    </div>
+
+    <div className='footer-distributed phone'>
+          
+        
+        <div className='footer-center container'>
+            
+            <div className='footerStyleCenter row'>
+            <a href="https://goo.gl/maps/2xfSApMh4HuVHq6u5" style={{fontSize: 20, color: 'black'}} target="_blank">
+                <p style={{marginLeft: 15, fontSize: 12}}>Ribevej 10 - 6670 Holsted - CVR. 43 65 71 86</p>
+            </a>
+            </div>
+            <div className='footerStyleCenter row'>
+            <a href="tel:30140243" style={{color: 'black'}}>
+				    <p style = {{marginLeft: 10}}>Per Hansen 21 24 44 42 - Rasmus Hansen 30 14 02 43</p>
+                </a>
+			</div>
+            <div className='footerMargin d-flex justify-content-center'>
+                <div>
+                    <a href="https://www.facebook.com/profile.php?id=100057589534390" style={{fontSize: 20}} target="_blank"><i className="fa-brands fa-facebook"></i></a>
+                </div>
+                <div style={{marginLeft: 10}}>
+                    <a href="mailto:mail@holstedmaskinudlejning.dk"><i className="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+          
+        </div>       
+       
     </div>
         </>
    

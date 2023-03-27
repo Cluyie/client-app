@@ -13,7 +13,7 @@ const url = "/assets/Forside.jpg"
 const logo = "/assets/logo.jpg"
 const frontPage = () => {  
     return (
-    <div className='contentMid'>
+    <div className='contentMid textContent'>
       <img src={url} className= 'imgStyle'></img>
         <Forside/>
     </div>
@@ -22,7 +22,7 @@ const frontPage = () => {
 
   const aboutpage = () => {  
     return (
-    <div className='contentMid'>
+    <div className='contentMid textContent'>
       <img src={url} className= 'imgStyle'></img>
       <OmPage/>
     </div>

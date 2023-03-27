@@ -258,11 +258,14 @@ ul.square {
 
 .machinesMargin {
 	margin-top: 10px;
+	margin-top: 2% !important;
+	margin-left: 2%;
 }
 
 .marginBotTop20 {
 	margin-bottom: 2%;
 	margin-left: 7% !important;
+	margin-top: 2% !important;
 }
 
 .marginTop {
@@ -283,6 +286,7 @@ ul.square {
 }
 .p-card {
 	max-width: 350px;
+	min-width: 330px;
 }
 
 .ui.menu {
@@ -338,14 +342,30 @@ a:active { text-decoration: none; }
 	cursor: pointer;
 }
 
+.textContent {
+}
+
+.notPhone {
+}
+.phone {
+	display: none;
+}
+
 /* If you don't want the footer to be responsive, remove these media queries */
 
 /*Tablet - phones can be corrected to fit better*/
 @media (max-width: 880px) {
 
+	.notPhone {
+		display: none;
+	}
+	.phone {
+		display: inline;
+	}
+
 	.footer-distributed{
 		font: bold 14px sans-serif;
-		height: 15vh;
+		height: 20vh;
 	}
 
 	.footer-distributed .footer-left,
@@ -359,10 +379,11 @@ a:active { text-decoration: none; }
 
 	.footer-distributed .footer-center i{
 		margin-left: 0;
+		margin-bottom: 5px;
 	}
 	.listStyle{
 		top: 50%;
-		left: 25%;
+		left: 43%;
 		transform: translate(-50%, -50%);	
 	}
 	.padAndMar {
@@ -371,8 +392,9 @@ a:active { text-decoration: none; }
 	}
 	.frontHeader {
 		top: 15%;
-		left: 30%;
+		left: 37%;
 		transform: translate(-50%, -50%);	
+		font-size: 25px;
 	}
 	.aboutText {
 		position: absolute;
@@ -389,6 +411,28 @@ a:active { text-decoration: none; }
 	.aboutPstyle {
 		font-weight: bolder;
 		font-size: 12px;
+	}
+	.p-card {
+		max-width: 350px;
+		min-width: 320px;
+	}
+	.machinesMargin {
+		margin-top: 2% !important;
+		margin-left: 4%;
+		min-width: 330px;
+		margin-bottom: 10px;
+	}
+
+	.marginBotTop20 {
+		margin-left: 2% !important;
+	}
+
+	.contentMid{
+		height: 70vh;
+	}
+	.textContent {
+		height: 73vh !important;
+		overflow: hidden;
 	}
 
 }
@@ -449,8 +493,14 @@ a:active { text-decoration: none; }
 		display: flexbox;
 	}
 	.p-card-body {
-		overflow:auto;
-		
+		overflow:auto;		
+	}
+	.p-card {
+		min-width: 0;
+	}
+	.textContent {
+		height: 85vh !important;
+		overflow: hidden;
 	}
 }
 
