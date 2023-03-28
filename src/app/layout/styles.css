@@ -259,7 +259,7 @@ ul.square {
 .machinesMargin {
 	margin-top: 10px;
 	margin-top: 2% !important;
-	margin-left: 2%;
+	margin-left: 4%;
 }
 
 .marginBotTop20 {
@@ -434,10 +434,15 @@ a:active { text-decoration: none; }
 		height: 73vh !important;
 		overflow: hidden;
 	}
+	.imgStyle {
+    height: 100%;
+	width: 100%;
+   
+}
 
 }
 /*15" screen - Need on similar for a 24" screen*/
-@media (max-width: 1800px) and (min-width: 881px) {
+@media (max-width: 1900px) and (min-width: 881px) {
 
 	.contentMid{
 		height: 85vh;
@@ -491,6 +496,7 @@ a:active { text-decoration: none; }
 	.machinesMargin {
 		margin-top: 10px;
 		display: flexbox;
+		margin-left: 4%;
 	}
 	.p-card-body {
 		overflow:auto;		
@@ -512,6 +518,11 @@ a:active { text-decoration: none; }
 	.phone {
 		display: inline;
 	}
+
+	.imgStyle {
+    height: 100%;
+	width: 100%;
+	}		
 
 	.footer-distributed{
 		font: bold 14px sans-serif;
