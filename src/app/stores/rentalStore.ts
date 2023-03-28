@@ -21,23 +21,19 @@ export default class RentalStore {
         makeAutoObservable(this);
     }
 
-    compare = ( a: MachineObj, b: MachineObj ) => {
-        if ( a.imageTitle < b.imageTitle ){
-          return -1;
-        }
-        if ( a.imageTitle > b.imageTitle ){
-          return 1;
-        }
-        return 0;
-      }
+   
 
     loadRentals = async () => {
       this.setLoadingInitial(true);
         try {
             const rentals = await agent.rentals.list();
-            this.rentals = rentals;
-            this.rentals.sort(this.compare);
-            this.setLoadingInitial(false);
+            runInAction(() => {
+                rentals.sort((a,b) => a.imageTitle.localeCompare(b.imageTitle));
+                this.rentals = rentals;
+                //this.rentals.sort(this.compare);
+                this.setLoadingInitial(false);;
+            });
+           
         } catch (error) {
             console.log(error);
             this.setLoadingInitial(false);
@@ -50,7 +46,7 @@ export default class RentalStore {
             await agent.rentals.create(rental);
         runInAction(() => {
             this.rentals.push(rental);
-            this.rentals.sort(this.compare);
+            this.rentals.sort((a,b) => a.imageTitle.localeCompare(b.imageTitle));
             this.setLoading(false);
             this.toggleCreateRentalDialogVisible();
             const emptyMachine: MachineObj = {
@@ -75,7 +71,7 @@ export default class RentalStore {
             var index = this.rentals.findIndex(x=> x.id == rental.id);
             if (index) {
                 this.rentals.splice(index, 1, rental);
-                this.rentals.sort(this.compare);
+                this.rentals.sort((a,b) => a.imageTitle.localeCompare(b.imageTitle));
             }           
             this.setLoading(false);
             this.toggleCreateRentalDialogVisible();

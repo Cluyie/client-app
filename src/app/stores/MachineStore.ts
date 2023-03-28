@@ -22,23 +22,18 @@ export default class MachineStore {
         makeAutoObservable(this);
     }
 
-    compare = ( a: MachineObj, b: MachineObj ) => {
-        if ( a.imageTitle < b.imageTitle ){
-          return -1;
-        }
-        if ( a.imageTitle > b.imageTitle ){
-          return 1;
-        }
-        return 0;
-      }
+   
 
     loadMachines = async () => {
       this.setLoadingInitial(true);
         try {
             const machines = await agent.machines.list();
-            this.machines = machines;
-            machines.sort(this.compare);
-            this.setLoadingInitial(false);
+            runInAction(() => {
+                machines.sort((a,b) => a.imageTitle.localeCompare(b.imageTitle));
+                this.machines = machines;
+                this.setLoadingInitial(false);
+            });
+            
         } catch (error) {
             console.log(error);
             this.setLoadingInitial(false);
@@ -51,7 +46,7 @@ export default class MachineStore {
             await agent.machines.create(machine);
         runInAction(() => {
             this.machines.push(machine);
-            this.machines.sort(this.compare);
+            this.machines.sort((a,b) => a.imageTitle.localeCompare(b.imageTitle));
             this.toggleCreateDialogVisible();
             this.setLoading(false);
             const emptyMachine: MachineObj = {
@@ -77,7 +72,7 @@ export default class MachineStore {
             var index = this.machines.findIndex(x=> x.id == machine.id);
             if (index) {
                 this.machines.splice(index, 1, machine);
-                this.machines.sort(this.compare);
+                this.machines.sort((a,b) => a.imageTitle.localeCompare(b.imageTitle));
             }
             this.setLoading(false);
             this.toggleCreateDialogVisible();

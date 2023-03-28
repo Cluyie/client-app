@@ -18,8 +18,14 @@ body, html {
 	  height: 100%;
 	  min-height: 100%;
 	  box-sizing: border-box;
-	  overflow-x: hidden;
+	  overflow: hidden;
   }
+
+.iconLogin {
+	margin-top: 10px;
+	margin-top: 2% !important;
+	margin-left: 4%;
+}
 
 .logoTop {
     width: 100px !important;
@@ -210,7 +216,7 @@ body, html {
 }
 .aboutText {
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);	
 
@@ -248,12 +254,13 @@ ul.square {
 
 .aboutHeader {
 	font-size: 50px;
-	font-family: cursive;
 	margin-top: 25%;
+	font-weight: bold;
 }
 .aboutPstyle {
 	font-weight: bolder;
-	font-size: 30px;
+	font-size: 25px;
+	margin-top: 10%;
 }
 
 .machinesMargin {
@@ -353,6 +360,79 @@ a:active { text-decoration: none; }
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
+
+/*15" screen - Need on similar for a 24" screen*/
+@media (max-width: 1900px) and (min-width: 881px) {
+
+	.contentMid{
+		height: 85vh;
+	}
+
+	.footer-distributed{
+		height: 10vh;
+	}
+
+	.footer-distributed .footer-center{
+		width: 46%;
+		margin-top: 10px;
+	}
+	
+	.footerMargin {
+		margin-top: 5%;
+	}
+
+
+	.listStyle {
+		top: 53%;
+		left: 25%;
+		transform: translate(-50%, -50%);
+		margin-left: 2%;	
+	}
+	.padAndMar {
+		font-weight: bold;
+		font-size: 18px;
+		padding-top: 10%;
+	}
+	.frontHeader {
+		top: 15%;
+		left: 20%;
+		transform: translate(-50%, -50%);
+		font-size: 30px;
+		font-weight: bold;	
+	}
+	.aboutPstyle {
+		font-weight: bolder;
+		font-size: 20px;
+		margin-top: 2%;
+	}
+	.aboutHeader {
+		font-size: 30px;
+		margin-top: 25%;
+	}
+	
+	.marginBotTop20 {
+		margin-left: 4% !important;
+		margin-bottom: 4% !important;
+	}
+
+	.machinesMargin {
+		margin-top: 10px;
+		display: flexbox;
+		margin-left: 4%;
+	}
+	.p-card-body {
+		overflow:auto;		
+	}
+	.p-card {
+		min-width: 0;
+	}
+	.textContent {
+		height: 85vh !important;
+		overflow: hidden;
+	}
+}
+
+
 /*Tablet - phones can be corrected to fit better*/
 @media (max-width: 880px) and (min-width: 380px) {
 
@@ -361,6 +441,12 @@ a:active { text-decoration: none; }
 	}
 	.phone {
 		display: inline;
+	}
+	
+	.iconLogin {
+		margin-top: 10px;
+		margin-top: 2% !important;
+		margin-left: 10%;
 	}
 
 	.footer-distributed{
@@ -382,19 +468,21 @@ a:active { text-decoration: none; }
 		margin-bottom: 5px;
 	}
 	.listStyle{
-		top: 60%;
-		left: 43%;
-		transform: translate(-50%, -50%);	
+		top: 44%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		margin-top: 5%;	
 	}
 	.padAndMar {
 		font-weight: bold;
-		font-size: 15px;
+		font-size: 12px;
 	}
 	.frontHeader {
-		top: 15%;
+		top: 12%;
 		left: 37%;
 		transform: translate(-50%, -50%);	
-		font-size: 25px;
+		font-size: 16px;
+		font-weight: bold;
 	}
 	.aboutText {
 		position: absolute;
@@ -405,12 +493,12 @@ a:active { text-decoration: none; }
 	}
 	.aboutHeader {
 		font-size: 24px;
-		font-family: cursive;
 		margin-top: 25%;
 	}
 	.aboutPstyle {
 		font-weight: bolder;
-		font-size: 12px;
+		font-size: 10px;
+		margin-top: 10%;
 	}
 	.p-card {
 		max-width: 350px;
@@ -441,75 +529,7 @@ a:active { text-decoration: none; }
 }
 
 }
-/*15" screen - Need on similar for a 24" screen*/
-@media (max-width: 1900px) and (min-width: 881px) {
-
-	.contentMid{
-		height: 85vh;
-	}
-
-	.footer-distributed{
-		height: 10vh;
-	}
-
-	.footer-distributed .footer-center{
-		width: 46%;
-		margin-top: 10px;
-	}
-	
-	.footerMargin {
-		margin-top: 5%;
-	}
-
-
-	.listStyle {
-		top: 53%;
-		left: 25%;
-		transform: translate(-50%, -50%);	
-	}
-	.padAndMar {
-		font-weight: bold;
-		font-size: 18px;
-		padding-top: 10%;
-	}
-	.frontHeader {
-		top: 15%;
-		left: 20%;
-		transform: translate(-50%, -50%);
-		font-size: 30px;	
-	}
-	.aboutPstyle {
-		font-weight: bolder;
-		font-size: 20px;
-	}
-	.aboutHeader {
-		font-size: 30px;
-		font-family: cursive;
-		margin-top: 25%;
-	}
-	
-	.marginBotTop20 {
-		margin-left: 4% !important;
-		margin-bottom: 4% !important;
-	}
-
-	.machinesMargin {
-		margin-top: 10px;
-		display: flexbox;
-		margin-left: 4%;
-	}
-	.p-card-body {
-		overflow:auto;		
-	}
-	.p-card {
-		min-width: 0;
-	}
-	.textContent {
-		height: 85vh !important;
-		overflow: hidden;
-	}
-}
-
+/*Smaller - phones can be corrected to fit better*/
   @media (max-width: 379px) {
 
 	.notPhone {
@@ -519,6 +539,11 @@ a:active { text-decoration: none; }
 		display: inline;
 	}
 
+	.iconLogin {
+		margin-top: 10px;
+		margin-top: 2% !important;
+		margin-left: 10%;
+	}
 	.imgStyle {
     height: 100%;
 	width: 100%;
@@ -526,7 +551,7 @@ a:active { text-decoration: none; }
 
 	.footer-distributed{
 		font: bold 14px sans-serif;
-		height: 20vh;
+		height: 25vh;
 	}
 
 	.footer-distributed .footer-left,
@@ -543,36 +568,37 @@ a:active { text-decoration: none; }
 		margin-bottom: 5px;
 	}
 	.listStyle{
-		top: 60%;
-		left: 43%;
+		top: 44%;
+		left: 50%;
 		transform: translate(-50%, -50%);	
+		margin-top: 5%;	
 	}
 	.padAndMar {
+		font-size: 12px;
 		font-weight: bold;
-		font-size: 15px;
 	}
 	.frontHeader {
-		top: 15%;
+		top: 12%;
 		left: 37%;
 		transform: translate(-50%, -50%);	
-		font-size: 25px;
+		font-size: 15px;
 	}
 	.aboutText {
 		position: absolute;
-		top: 50%;
+		top: 35%;
 		left: 50%;
 		transform: translate(-50%, -50%);	
 		width: 80%;
 	
 	}
 	.aboutHeader {
-		font-size: 24px;
-		font-family: cursive;
+		font-size: 20px;
 		margin-top: 25%;
 	}
 	.aboutPstyle {
 		font-weight: bolder;
-		font-size: 12px;
+		font-size: 9px;
+		margin-top: 10%;
 	}
 	.p-card {
 		max-width: 300px;
@@ -587,6 +613,7 @@ a:active { text-decoration: none; }
 
 	.marginBotTop20 {
 		margin-left: 2% !important;
+		margin-bottom: 10%;
 	}
 
 	.contentMid{
@@ -603,5 +630,62 @@ a:active { text-decoration: none; }
 
 }  
 
+
+@media (max-height: 650px) and (min-height: 580) { 
+
+	.iconLogin {
+		margin-top: 10px;
+		margin-top: 2% !important;
+		margin-left: 10%;
+	}
+
+	.marginBotTop20 {
+		margin-bottom: 14%;
+	}
+
+	.footer-distributed{
+		height: 25vh;
+	}
+
+	.aboutText {
+		top: 40%;
+	
+	}
+}
+
+@media (max-height: 580px) { 
+
+	.iconLogin {
+		margin-top: 10px;
+		margin-top: 2% !important;
+		margin-left: 10%;
+	}
+
+	.marginBotTop20 {
+		margin-bottom: 14%;
+	}
+
+	.footer-distributed{
+		height: 27vh;
+	}
+
+	.aboutText {
+		top: 40%;
+	
+	}
+
+	.padAndMar {
+		font-size: 7px;
+	}
+
+	.frontHeader{
+		font-size: 12px;
+		top: 15%;
+	}
+
+	.aboutPstyle {
+		margin-top: 4%;
+	}
+}	
 
 

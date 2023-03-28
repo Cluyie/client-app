@@ -188,7 +188,7 @@ const MenubarTop = () => {
 
     const url = "/assets/logo.jpg"
     const end = (
-        <div className='d-flex flex-row machinesMargin'>
+        <div className='d-flex flex-row iconLogin'>
         <img alt="logo"  src={url} height="40" className="mr-2 logoTop"></img>
         <i className="fa-solid fa-right-to-bracket loginIcon" onClick={() => setLoginDialogVisible()}></i>
     </div>
